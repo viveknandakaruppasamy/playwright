@@ -2,62 +2,24 @@ class LoginPage {
     constructor(page) //for opening browser or tab
     {
         this.page = page;       
+
+        this.username =  page.locator('#user-name');
+        this.password =  page.locator('#password');
+        this.loginBtn =  page.locator('#login-button');
     }
 
     // goto will open the link 
-    async openPage(){
-        await this.page.goto('https://www.saucedemo.com/');
+    async openPage(){   // this will open the page in the browser 
+        await this.page.goto('https://www.saucedemo.com/');  //this will wait until the page is created and then it will open the website in that page
+    }
+
+    async login(user, pass)
+    {
+        await this.username.fill(user);
+        await this.password.fill(pass);
+        await this.loginBtn.click();
     }
 }
 
 export default LoginPage;
 
-// @ts-nocheck
-// import { defineConfig, devices } from '@playwright/test';
-
-// export default defineConfig({
-  
-//   testDir: './tests',
-
-//   /* Run tests fully in parallel */
-//   fullyParallel: true,
-
-//   /* Fail build if test.only is left */
-//   forbidOnly: !!process.env.CI,
-
-//   /* Retries */
-//   retries: process.env.CI ? 2 : 1,
-
-//   /* Workers (parallel threads) */
-//   workers: process.env.CI ? 2 : 4, // 🔥 added properly
-
-//   /* Reporter */
-//   reporter: 'html',
-
-
-//   /* Shared settings */
-//   use: {
-//     trace: 'on', // works now because retries = 1
-//     video: 'retain-on-failure', // 🔥 added (very useful)
-//     screenshot: 'only-on-failure', // optional but smart\
-//     slowmo : 500,
-//   },
-
-//   reporter: [
-//   ['line'],
-//   ['allure-playwright']
-// ],
-
-//   /* Browser projects */
-//   projects: [
-//     {
-//       name: 'chromium',
-//       use: { ...devices['Desktop Chrome'] },
-//     },
-//     {
-//       name: 'firefox',
-//       use: { ...devices['Desktop Firefox'] },
-//     },
- 
-//   ],
-// });
