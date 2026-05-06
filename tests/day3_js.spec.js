@@ -24,4 +24,25 @@ test('UI action demo', async ({page}) =>
 
     //6. Get by text
     await expect(page.getByText('products')).toBeVisible();
+
+    //7.clicking element
+    await page.locator('#add-to-cart-sauce-labs-backpack').click();
+
+    //8.Page assertion (cart count)
+    await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
+
+    //6.Screenshot
+    await page.screenshot({ path: 'C:/Users/viveknandha/Downloads/playwright/screenshots/inventory.png'});
+
+    await page.waitForSelector('.inventory_list');
+    await page.waitForLoadState('networkidle');
+
+    await expect(page).toHaveScreenshot('inventorypage.png', {
+    maxDiffPixels: 1000
+    });
+
+    // Snapshot (visual testing)
+    await expect(page).toHaveScreenshot('inventorypage.png', {
+    fullPage: true
+    });
 })
