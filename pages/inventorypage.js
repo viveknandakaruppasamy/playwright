@@ -2,18 +2,18 @@ class Inventorypage {
     constructor(page){
         this.page = page;
 
-        this.addToCartBackpack = page.locator('#add-to-cart-sauce-labs-backpack');
-        this.cartIcon = page.locator('.shopping_cart_link');
+        this.backpackbutton = page.locator('#add-to-cart-sauce-labs-backpack');
+
+        this.bikelight = page.locator('#add-to-cart-sauce-labs-bike-light');
+    }
+    async addBackpack()
+    {
+        await this.backpackbutton.click();
     }
 
-    async addBackpackToCart()
+    async addBikeLight()
     {
-        await this.addToCartBackpack.click();
-    }
-
-    async goToCart()
-    {
-        await this.cartIcon.click();
+        await this.bikelight.click();
     }
 }
 

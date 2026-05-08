@@ -6,15 +6,20 @@ test('valid login test', async({ page }) => //playwright work on more asynchrono
 {
     const login = new LoginPage(page);
     const inventory = new Inventorypage(page);
+    const cart = new CartPage(page);
 
     await login.openPage();
     await login.login('standard_user', 'secret_sauce');
 
-    await inventory.addBackpackToCart();
+    await inventory.addBackpack();
 
-    await inventory.goToCart();
+    await inventory.addBikeLight();
 
-    await expect(page).toHaveURL(/cart/);
+    await cart.clickCheckout();
+
+    await expect(
+        page.locator('.shopping_cart_badge')
+    ).toHaveText('2');
 });
 
 // import { test, devices } from '@playwright/test';
