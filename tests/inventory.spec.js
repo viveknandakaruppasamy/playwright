@@ -17,15 +17,15 @@ test('valid inventory page', async  (
         'secret_sauce'
     );
 
-    await inventory.addBackpack();
+    await inventoryPage.addBackpack();
 
-    await inventory.addBikeLight();
+    await inventoryPage.addBikeLight();
 
     await expect(
         page.locator('.shopping_cart_badge')
     ).toHaveText('2');
 
-    await inventory.addCartButton();
+    await inventoryPage.clickCartButton();
 
 
 });

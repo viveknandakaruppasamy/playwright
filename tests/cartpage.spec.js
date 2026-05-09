@@ -1,13 +1,12 @@
 import { test, expect } from '../fixtures/basetest';
 
 
-test('valid cart page', async (
-    {
+test('valid cart page', async ({
    
     loginPage,
-    inventorypage,
-    cartPage
-
+    inventoryPage,
+    cartPage,
+    page 
 
 }) => {
 
@@ -22,9 +21,10 @@ test('valid cart page', async (
 
     await inventoryPage.addBikeLight();
 
-    await inventoryPage.addCartButton();
+    await inventoryPage.clickCartButton();
 
     await cartPage.verifyProduct();
 
     await cartPage.clickCheckout();
 });
+

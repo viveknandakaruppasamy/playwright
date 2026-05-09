@@ -1,8 +1,8 @@
 import { test as base } from '@playwright/test';
 
-import LoginPage from '../../pages/login';
-import Inventorypage from '../../pages/inventory';
-import CartPage from '../../pages/cart';
+import LoginPage from '../pages/login';
+import Inventorypage from '../pages/inventory';
+import CartPage from '../pages/cart';
 
 
 export const test = base.extend({
