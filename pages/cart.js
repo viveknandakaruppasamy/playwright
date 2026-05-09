@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test';
+
 class CartPage
 {
     constructor(page)
@@ -24,3 +26,4 @@ class CartPage
         await this.checkoutbutton.click();
     }
 }
+export default CartPage;

@@ -5,6 +5,8 @@ class Inventorypage {
         this.backpackbutton = page.locator('#add-to-cart-sauce-labs-backpack');
 
         this.bikelight = page.locator('#add-to-cart-sauce-labs-bike-light');
+
+        this.cartbutton = page.locator('#shopping_cart_container');
     }
     async addBackpack()
     {
@@ -14,6 +16,11 @@ class Inventorypage {
     async addBikeLight()
     {
         await this.bikelight.click();
+    }
+
+    async clickCartButton()
+    {
+        await this.cartbutton.click();
     }
 }
 
