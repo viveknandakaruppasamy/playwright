@@ -1,12 +1,11 @@
-import { test, expect } from '../fixtures/basetest';
+import { test } from '../fixtures/baseTest';
 
 
 test('valid cart page', async ({
    
     loginPage,
     inventoryPage,
-    cartPage,
-    page 
+    cartPage
 
 }) => {
 
@@ -17,14 +16,17 @@ test('valid cart page', async ({
         'secret_sauce'
     );
     
-    await inventoryPage.addBackpack();
+    await inventoryPage.addBackpackToCart();
 
-    await inventoryPage.addBikeLight();
+    await inventoryPage.addBikeLightToCart();
 
-    await inventoryPage.clickCartButton();
+    await inventoryPage.openCart();
 
-    await cartPage.verifyProduct();
+    await cartPage.verifyProductsInCart([
+        'Sauce Labs Backpack',
+        'Sauce Labs Bike Light'
+    ]);
 
-    await cartPage.clickCheckout();
+    await cartPage.clickCheckoutButton();
 });
 

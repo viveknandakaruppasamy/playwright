@@ -1,11 +1,10 @@
-import { test, expect } from '../fixtures/basetest';
+import { test } from '../fixtures/baseTest';
 
-test ('Valid Chekout Page', async (
-    {
+test ('Valid Chekout Page', async ({
         loginPage,
         inventoryPage,
         cartPage,
-        checkoutpage,
+        checkoutPage,
         page
     }) => {
         await loginPage.openPage();
@@ -15,17 +14,24 @@ test ('Valid Chekout Page', async (
             'secret_sauce'    
         );    
 
-        await inventoryPage.addBackpack();
+        await inventoryPage.addBackpackToCart();
 
-        await inventoryPage.addBikeLight();
+        await inventoryPage.addBikeLightToCart();
 
-        await inventoryPage.clickCartButton();
+        await inventoryPage.openCart();
 
-        await cartPage.verifyProduct();
+        await cartPage.verifyProductsInCart([
+        'Sauce Labs Backpack',
+        'Sauce Labs Bike Light'
+        ]);
 
-        await cartPage.clickCheckout();
+        await cartPage.clickCheckoutButton();
 
-        await checkoutpage.Data();
+        await checkoutPage.fillCheckoutDetails(
+            'John',
+            'Doe',
+            '600001'
+        );
 
-        await checkoutpage.Continue();
-    });
+        await checkoutPage.clickContinueButton();
+});

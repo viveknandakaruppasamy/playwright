@@ -3,9 +3,9 @@ class LoginPage {
     {
         this.page = page;       
 
-        this.username =  page.locator('#user-name');
-        this.password =  page.locator('#password');
-        this.loginBtn =  page.locator('#login-button');
+        this.usernameInput =  page.locator('#user-name');
+        this.passwordInput =  page.locator('#password');
+        this.loginButton =  page.locator('#login-button');
     }
 
     // goto will open the link 
@@ -15,9 +15,9 @@ class LoginPage {
 
     async login(user, pass)
     {
-        await this.username.fill("standard_user");
-        await this.password.fill("secret_sauce");
-        await this.loginBtn.click();
+        await this.usernameInput.fill("standard_user");
+        await this.passwordInput.fill("secret_sauce");
+        await this.loginButton.click();
     }
 }
 

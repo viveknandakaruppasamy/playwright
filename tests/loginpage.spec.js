@@ -1,17 +1,16 @@
-import { test, expect } from '@playwright/test';
-import LoginPage from '../pages/login';
+import { test } from '../fixtures/baseTest';
 
 
-test('valid login test', async({ page }) => //playwright work on more asynchronous elements so async keyword is used
-{
-    const login = new LoginPage(page);
-    
-   
+test('valid login test', async ({
+    loginPage
+}) => {
 
-    await login.openPage();
-    await login.login('standard_user', 'secret_sauce');
+    await loginPage.openPage();
 
-   
+    await loginPage.login(
+        'standard_user',
+        'secret_sauce'
+    );
 });
 
 // import { test, devices } from '@playwright/test';

@@ -1,9 +1,8 @@
-import { test, expect } from '../fixtures/basetest';
+import { test, expect } from '../fixtures/baseTest';
 
 
 
-test('valid inventory page', async  (
-{
+test('valid inventory page', async  ({
 
     loginPage,
     inventoryPage,
@@ -17,15 +16,15 @@ test('valid inventory page', async  (
         'secret_sauce'
     );
 
-    await inventoryPage.addBackpack();
+    await inventoryPage.addBackpackToCart();
 
-    await inventoryPage.addBikeLight();
+    await inventoryPage.addBikeLightToCart();
 
     await expect(
         page.locator('.shopping_cart_badge')
     ).toHaveText('2');
 
-    await inventoryPage.clickCartButton();
+    await inventoryPage.openCart();
 
 
 });

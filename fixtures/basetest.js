@@ -1,9 +1,9 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
 
-import LoginPage from '../pages/login';
-import Inventorypage from '../pages/inventory';
-import CartPage from '../pages/cart';
-import Checkout from '../pages/checkout';
+import LoginPage from '../pages/loginPage';
+import InventoryPage from '../pages/inventoryPage';
+import CartPage from '../pages/cartPage';
+import CheckoutPage from '../pages/checkoutPage';
 
 
 export const test = base.extend({
@@ -23,11 +23,11 @@ export const test = base.extend({
         await use(new CartPage(page));
     },
 
-    checkoutpage: async ({page}, use) => {
+    checkoutPage: async ({page}, use) => {
 
-        await use(new Checkout(page));
+        await use(new CheckoutPage(page));
 
     }
 });
 
-export { expect } from '@playwright/test';
+export { expect };
