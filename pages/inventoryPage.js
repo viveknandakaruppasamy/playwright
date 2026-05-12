@@ -24,4 +24,4 @@ class InventoryPage {
     }
 }
 
-export default Inventorypage;
+export default InventoryPage;
